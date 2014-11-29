@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.springer</groupId>
+  <artifactId>omelet-archetype-simple</artifactId>
+  <version>1.0.4</version>
+  <packaging>maven-archetype</packaging>
+  <name>omelet-archetype-simple</name>
+	<url>https://github.com/springer-opensource/omelet</url>
+	<description>Automation library for Selenium built on top of TestNg</description>
+	<distributionManagement>
+		<repository>
+			<id>nexus</id>
+			<name>omelet-repo</name>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+		</repository>
+	</distributionManagement>
+	<properties>
+		<github.global.server>github</github.global.server>
+	</properties>
+  <build>
+  
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.archetype</groupId>
+        <artifactId>archetype-packaging</artifactId>
+        <version>2.2</version>
+      </extension>
+    </extensions>
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-archetype-plugin</artifactId>
+          <version>2.2</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
