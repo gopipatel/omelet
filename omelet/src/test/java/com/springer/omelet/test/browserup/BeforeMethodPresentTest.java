@@ -28,7 +28,7 @@ public class BeforeMethodPresentTest {
 
 	private String sessionID;
 
-	@BeforeMethod
+	/*@BeforeMethod
 	public void setUpBrowser() {
 		WebDriver driver = Driver.getDriver();
 		sessionID = ((RemoteWebDriver) driver).getSessionId().toString();
@@ -39,6 +39,6 @@ public class BeforeMethodPresentTest {
 	public void verifySameBrowserInstance() {
 		Assert.assertEquals(((RemoteWebDriver) Driver.getDriver())
 				.getSessionId().toString(), sessionID);
-	}
+	}*/
 
 }

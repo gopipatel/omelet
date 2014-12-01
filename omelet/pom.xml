@@ -10,7 +10,7 @@
 	<url>https://github.com/springer-opensource/omelet</url>
 	<description>Automation library for Selenium built on top of TestNg</description>
 	
-	<!-- <licenses>
+	<licenses>
 		<license>
 			<name>Apache 2</name>
 			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
@@ -37,7 +37,7 @@
 		<url>https://github.com/springer-opensource/omelet.git</url>
 		<connection>scm:git:ttps://github.com/springer-opensource/omelet.git</connection>
 		<tag>HEAD</tag>
-	</scm> -->
+	</scm>
 	<dependencies>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
@@ -93,7 +93,7 @@
 
 
 	</dependencies>
-<!-- 	<build>
+	<build>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -199,5 +199,5 @@
 				</plugins>
 			</build>
 		</profile>
-	</profiles> -->
+	</profiles>
 </project>

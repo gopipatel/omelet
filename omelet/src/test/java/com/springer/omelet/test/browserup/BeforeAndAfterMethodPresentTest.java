@@ -29,7 +29,7 @@ public class BeforeAndAfterMethodPresentTest {
 
 	private String sessionID;
 
-	@BeforeMethod
+	/*@BeforeMethod
 	public void setupBrowser() {
 		WebDriver driver = Driver.getDriver();
 		sessionID = ((RemoteWebDriver) driver).getSessionId().toString();
@@ -46,5 +46,5 @@ public class BeforeAndAfterMethodPresentTest {
 		Assert.assertEquals(((RemoteWebDriver) Driver.getDriver())
 				.getSessionId().toString(), sessionID);
 	}
-
+*/
 }

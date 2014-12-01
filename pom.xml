@@ -4,8 +4,11 @@
   <artifactId>omelet-parent</artifactId>
   <version>1.0.4</version>
   <packaging>pom</packaging>
+  <name>omelet-Parent</name>
+  <description>Parent project for the omelet</description>
+  <url>https://github.com/springer-opensource/omelet</url>
   <modules>
-  	<!-- <module>omelet</module> -->
+  	<module>omelet</module>
   	<module>omelet-archetype-simple</module>
   </modules>
   
