@@ -37,11 +37,14 @@ import org.testng.annotations.IFactoryAnnotation;
 import org.testng.annotations.ITestAnnotation;
 
 import com.springer.omelet.data.DataProvider.mapStrategy;
+import com.springer.omelet.data.DriverConfigurations;
 import com.springer.omelet.data.IMappingData;
 import com.springer.omelet.data.IProperty;
 import com.springer.omelet.data.PrettyMessage;
 import com.springer.omelet.data.RefineMappedData;
 import com.springer.omelet.data.driverconf.IBrowserConf;
+import com.springer.omelet.data.driverconf.PrepareDriverConf;
+import com.springer.omelet.data.driverconf.RefinedBrowserConf;
 import com.springer.omelet.data.googlesheet.GoogleSheetConstant;
 import com.springer.omelet.data.googlesheet.ReadGoogle;
 import com.springer.omelet.data.xml.BrowserXmlParser;
@@ -115,20 +118,32 @@ public class RetryIAnnotationTransformer implements IAnnotationTransformer,
 			Thread t = new Thread(prettyMessage);
 			t.start();
 			String evironment = System.getProperty("env-type");
-			// here we can check if the method have any DataProvider
-			for (IMethodInstance method : methods) {
-				String dataProviderName = method.getMethod()
+	
+			Map<String, String> tempMap = new HashMap<String, String>();
+			PrepareDriverConf configuration = new PrepareDriverConf(tempMap);
+			String propertiesDataProviderName = configuration.refineBrowserValues().checkForRules().get().getDataSource();
+            
+			for (IMethodInstance method : methods) {				
+				String methodDataProviderName = method.getMethod()
 						.getConstructorOrMethod().getMethod()
 						.getAnnotation(org.testng.annotations.Test.class)
 						.dataProvider();
 				Method methodReflect = method.getMethod()
 						.getConstructorOrMethod().getMethod();
-				if (dataProviderName.equals("GoogleData")) {
+				
+				if(StringUtils.isNotBlank(methodDataProviderName)){
+					propertiesDataProviderName = methodDataProviderName;
+				}				
+				
+				if (propertiesDataProviderName.equals("GoogleData")) {
 					updateGooglSheet(methodReflect, evironment);
-				} else if (dataProviderName.equals("XmlData")) {
+				} else if (propertiesDataProviderName.equals("XmlData")) {
 					updateXml(methodReflect, evironment);
 				}
+				
 			}
+			
+			
 			prettyMessage.swtichOffLogging();
 			try {
 				t.join();

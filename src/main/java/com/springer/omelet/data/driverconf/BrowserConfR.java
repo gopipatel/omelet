@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.springer.omelet.data.DriverConfigurations;
+import com.springer.omelet.data.DriverConfigurations.FrameworkConfig;
 
 public class BrowserConfR implements IBrowserConf {
 
@@ -248,5 +249,10 @@ public class BrowserConfR implements IBrowserConf {
 			}
 		}
 		return false;
+	}
+	
+	public String getDataSource()
+	{
+		return mappedValues.get(DriverConfigurations.FrameworkConfig.dataSource.toString());
 	}
 }

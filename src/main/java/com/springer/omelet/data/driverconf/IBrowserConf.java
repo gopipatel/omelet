@@ -60,4 +60,5 @@ public interface IBrowserConf {
 
 	public boolean isMobileTest();
 
+	public String getDataSource();
 }
